@@ -41,13 +41,11 @@ class FetchService {
 
       if (redisClient && redisClient.isReady) {
 
-        await redisClient.set(
+        await redisClient.setEx(
           'all_records',
-          JSON.stringify(records),
-          {
-            EX: 300 // cache 5 min
-          }
-        );
+          parseInt(process.env.REDIS_TTL) || 3600,
+          JSON.stringify(records)
+        );    
 
         console.log('Cache updated');
       }
