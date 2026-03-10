@@ -16,3 +16,8 @@ A complete backend system with REST APIs, PostgreSQL, Redis, and Kafka.
    cd instasupply-backend
    npm install
    ```
+   ## Environment Variables Setup
+
+1. **Create `.env` file** in root directory:
+   ```bash
+   cp .env.example .env
